@@ -1,8 +1,15 @@
 import React from 'react';
-import {AppNavigation} from './core/navigation';
+import {Provider} from 'react-redux';
+
+import {AppNavigation} from 'src/core/navigation';
+import {store} from 'src/core/redux';
 
 const App = () => {
-  return <AppNavigation />;
+  return (
+    <Provider store={store}>
+      <AppNavigation />
+    </Provider>
+  );
 };
 
 export default App;
