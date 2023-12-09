@@ -9,11 +9,11 @@ export class Photo extends Realm.Object<Photo> {
   server!: string;
   farm!: number;
   title!: string;
-  ispublic!: boolean;
-  isfriend!: boolean;
-  isfamily!: boolean;
-  is_primary!: boolean;
-  has_comment!: boolean;
+  ispublic!: number;
+  isfriend!: number;
+  isfamily!: number;
+  is_primary!: number;
+  has_comment!: number;
 
   static schema: ObjectSchema = {
     name: PhotoSchemaName,
@@ -24,11 +24,11 @@ export class Photo extends Realm.Object<Photo> {
       server: 'string',
       farm: 'int',
       title: 'string',
-      ispublic: 'bool',
-      isfriend: 'bool',
-      isfamily: 'bool',
-      is_primary: 'bool',
-      has_comment: 'bool',
+      ispublic: 'int',
+      isfriend: 'int',
+      isfamily: 'int',
+      is_primary: 'int',
+      has_comment: 'int',
     },
     primaryKey: 'id',
   };
