@@ -3,12 +3,15 @@ import {Provider} from 'react-redux';
 
 import {AppNavigation} from 'src/core/navigation';
 import {store} from 'src/core/redux';
+import {RealmProvider} from './core/realm';
 
 const App = () => {
   return (
-    <Provider store={store}>
-      <AppNavigation />
-    </Provider>
+    <RealmProvider>
+      <Provider store={store}>
+        <AppNavigation />
+      </Provider>
+    </RealmProvider>
   );
 };
 
