@@ -30,7 +30,7 @@ export const usePhotos = () => {
   return {
     isLoading,
     error,
-    photos,
+    photos: [...photos],
     fetchPhotos,
   };
 };

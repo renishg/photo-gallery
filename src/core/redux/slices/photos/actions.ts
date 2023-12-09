@@ -9,9 +9,13 @@ const fetchPhotos = createAsyncThunk<
   GetPhotosResponse,
   undefined,
   ThunkApiConfig
->('users/fetchPhotos', async (_, {extra: {apiService}}) => {
-  const response = await apiService.getPhotos();
-  return response.data;
+>('users/fetchPhotos', async (_, {rejectWithValue, extra: {apiService}}) => {
+  try {
+    const response = await apiService.getPhotos();
+    return response.data;
+  } catch (error) {
+    return rejectWithValue('Something went wrong');
+  }
 });
 
 export const photosActions = {

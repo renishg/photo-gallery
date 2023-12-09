@@ -24,9 +24,9 @@ export const {reducer: photosReducer} = createSlice({
         state.isLoading = false;
         state.error = undefined;
       })
-      .addCase(photosActions.fetchPhotos.rejected, state => {
+      .addCase(photosActions.fetchPhotos.rejected, (state, action) => {
         state.isLoading = false;
-        state.error = 'Something went wrong';
+        state.error = action.payload;
       })
       .addCase(photosActions.setLoading, (state, action) => {
         state.isLoading = action.payload;

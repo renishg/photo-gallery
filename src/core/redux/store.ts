@@ -25,4 +25,5 @@ export type ThunkApiConfig = {
   dispatch: AppDispatch;
   state: RootState;
   extra: typeof extraArgument;
+  rejectValue: string;
 };
