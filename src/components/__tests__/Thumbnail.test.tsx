@@ -37,7 +37,9 @@ describe('<Thumbnail/>', () => {
 
   describe('without onItemPress', () => {
     beforeEach(() => {
-      instance = renderWithProviders(<Thumbnail item={item} />);
+      instance = renderWithProviders(
+        <Thumbnail item={item} totalColumns={1} />,
+      );
     });
 
     afterEach(() => {
