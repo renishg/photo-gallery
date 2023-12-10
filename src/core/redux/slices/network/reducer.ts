@@ -13,12 +13,12 @@ export const {reducer: networkReducer} = createSlice({
   name: 'photos',
   initialState,
   reducers: {},
-  extraReducers: builder => {
+  extraReducers: (builder) => {
     builder
       .addCase(networkActions.setIsConnected, (state, action) => {
         state.isConnected = action.payload;
       })
-      .addCase(networkActions.reset, state => {
+      .addCase(networkActions.reset, (state) => {
         state.isConnected = false;
       });
   },

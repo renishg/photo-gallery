@@ -40,7 +40,7 @@ export const mockGetPhotosResponse: GetPhotosResponse = {
   stat: 'ok',
 };
 
-export const writeMock = jest.fn().mockImplementation(callback => callback());
+export const writeMock = jest.fn().mockImplementation((callback) => callback());
 
 export const createMock = jest.fn();
 

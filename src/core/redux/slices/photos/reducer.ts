@@ -14,13 +14,13 @@ export const {reducer: photosReducer} = createSlice({
   name: 'photos',
   initialState,
   reducers: {},
-  extraReducers: builder => {
+  extraReducers: (builder) => {
     builder
-      .addCase(photosActions.fetchPhotos.pending, state => {
+      .addCase(photosActions.fetchPhotos.pending, (state) => {
         state.isLoading = true;
         state.error = undefined;
       })
-      .addCase(photosActions.fetchPhotos.fulfilled, state => {
+      .addCase(photosActions.fetchPhotos.fulfilled, (state) => {
         state.isLoading = false;
         state.error = undefined;
       })
@@ -31,7 +31,7 @@ export const {reducer: photosReducer} = createSlice({
       .addCase(photosActions.setLoading, (state, action) => {
         state.isLoading = action.payload;
       })
-      .addCase(photosActions.reset, state => {
+      .addCase(photosActions.reset, (state) => {
         state.isLoading = false;
         state.error = undefined;
       });

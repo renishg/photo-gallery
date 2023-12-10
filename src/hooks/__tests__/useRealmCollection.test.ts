@@ -39,7 +39,7 @@ describe('useRealmCollection', () => {
 
     insertAll(data);
 
-    data.forEach(item => {
+    data.forEach((item) => {
       expect(createMock).toHaveBeenCalledWith(Photo, item, UpdateMode.Modified);
     });
   });

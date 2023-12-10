@@ -8,7 +8,7 @@ export const useRealmCollection = (schema: RealmSchema) => {
 
   const insertAll = useCallback(
     (records: Record<string, unknown>[]) => {
-      records.forEach(record => {
+      records.forEach((record) => {
         realm.write(() => {
           realm.create(schema, record, UpdateMode.Modified);
         });
