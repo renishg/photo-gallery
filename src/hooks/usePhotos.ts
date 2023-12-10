@@ -1,13 +1,9 @@
 import {useCallback} from 'react';
-import {
-  photosActions,
-  photosSelectors,
-  useAppDispatch,
-  useAppSelector,
-} from 'src/core/redux';
+import {photosActions, photosSelectors} from 'src/core/redux';
 import {useNetwork} from './useNetwork';
 import {Photo} from 'src/core/realm/schema';
 import {useRealmCollection} from './useRealmCollection';
+import {useAppDispatch, useAppSelector} from 'src/core/redux/hooks';
 
 export const usePhotos = () => {
   const {isConnected} = useNetwork();
@@ -19,11 +15,12 @@ export const usePhotos = () => {
 
   const fetchPhotos = useCallback(() => {
     if (isConnected) {
-      dispatch(photosActions.fetchPhotos())
+      return dispatch(photosActions.fetchPhotos())
         .unwrap()
         .then(({photos: {photo}}) => {
           insertAll(photo);
-        });
+        })
+        .catch(console.error);
     }
   }, [dispatch, insertAll, isConnected]);
 
@@ -34,3 +31,5 @@ export const usePhotos = () => {
     fetchPhotos,
   };
 };
+
+export type UsePhotosType = ReturnType<typeof usePhotos>;

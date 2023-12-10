@@ -1,8 +1,7 @@
 import axios from 'axios';
-import {apiCostants} from './constants';
+import {API_CONSTANTS} from './constants';
 
 export const axiosInstance = axios.create({
-  baseURL: apiCostants.baseUrl,
+  baseURL: API_CONSTANTS.baseUrl,
   timeout: 10000,
-  headers: {'X-Custom-Header': 'foobar'},
 });

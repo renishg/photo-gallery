@@ -4,9 +4,8 @@ import {Photo} from './schema';
 
 const schema = [Photo];
 
-const realmConfig: Realm.Configuration = {
+export const realmConfig: Realm.Configuration = {
   schema,
-  deleteRealmIfMigrationNeeded: true,
 };
 
 export type RealmSchema = (typeof schema)[number];

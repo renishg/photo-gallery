@@ -1,6 +1,6 @@
 import React, {FC, PropsWithChildren, useEffect} from 'react';
+import {ErrorText} from 'src/components';
 import {useNetwork} from 'src/hooks';
-import {ErrorText} from './ErrorText';
 
 export const NetworkManager: FC<PropsWithChildren> = ({children}) => {
   const {isConnected, setIsConnected} = useNetwork();

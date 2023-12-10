@@ -22,3 +22,5 @@ export const useRealmCollection = (schema: RealmSchema) => {
     insertAll,
   };
 };
+
+export type UseRealmCollectionType = ReturnType<typeof useRealmCollection>;

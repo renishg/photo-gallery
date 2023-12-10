@@ -5,9 +5,9 @@ import {SafeAreaProvider} from 'react-native-safe-area-context';
 import {AppNavigation} from 'src/core/navigation';
 import {store} from 'src/core/redux';
 import {RealmProvider} from './core/realm';
-import {NetworkManager} from './components/NetworkManager';
+import {NetworkManager} from './core/components';
 
-const App = () => {
+export const App = () => {
   return (
     <SafeAreaProvider>
       <Provider store={store}>
@@ -20,5 +20,3 @@ const App = () => {
     </SafeAreaProvider>
   );
 };
-
-export default App;

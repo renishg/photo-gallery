@@ -1,4 +1,4 @@
-import {useNavigation, useRoute} from '@react-navigation/core';
+import {useNavigation, useRoute} from '@react-navigation/native';
 import React, {useEffect} from 'react';
 import {StyleSheet, View} from 'react-native';
 import {OwnerText, Thumbnail} from 'src/components';

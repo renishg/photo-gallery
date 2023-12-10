@@ -6,7 +6,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import {Photo} from 'src/core/api/types';
-import {getImageUri} from 'src/core/api/utils';
+import {getImageUri} from 'src/utils';
 
 type Props = {
   item: Photo;
@@ -24,14 +24,15 @@ const Thumbnail: FC<Props> = ({item, onItemPress, totalColumns = 1}) => {
   }, [item, onItemPress]);
 
   const computedStyle = useMemo(() => {
-    return totalColumns ? {flex: 1 / totalColumns} : undefined;
+    return {flex: 1 / totalColumns};
   }, [totalColumns]);
 
   return (
     <TouchableOpacity
       activeOpacity={onItemPress ? 0.6 : 1}
       onPress={onPress}
-      style={computedStyle}>
+      style={computedStyle}
+      accessibilityRole={'button'}>
       <Image
         source={source}
         style={StyleSheet.flatten([styles.image])}

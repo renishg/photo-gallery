@@ -1,4 +1,4 @@
-import {useNavigation} from '@react-navigation/core';
+import {useNavigation} from '@react-navigation/native';
 import React, {useCallback, useEffect} from 'react';
 import {StyleSheet, View} from 'react-native';
 import {ErrorText, PhotoGrid} from 'src/components';
@@ -32,7 +32,7 @@ export const HomeScreen = () => {
       <PhotoGrid
         refreshing={isLoading}
         onRefresh={fetchPhotos}
-        data={[...photos, ...photos]}
+        data={photos}
         onItemPress={onItemPress}
         totalColumns={totalColumns}
         ListHeaderComponent={ListHeaderComponent}

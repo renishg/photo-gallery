@@ -1,7 +1,7 @@
 import {createSlice} from '@reduxjs/toolkit';
 import {photosActions} from './actions';
 
-type PhotosState = {
+export type PhotosState = {
   isLoading: boolean;
   error?: string;
 };

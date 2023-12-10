@@ -1,11 +1,11 @@
 import {createSlice} from '@reduxjs/toolkit';
 import {networkActions} from './actions';
 
-type PhotosState = {
+export type NetworkState = {
   isConnected: boolean;
 };
 
-const initialState: PhotosState = {
+const initialState: NetworkState = {
   isConnected: false,
 };
 

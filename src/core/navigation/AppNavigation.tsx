@@ -5,11 +5,11 @@ import {
 } from '@react-navigation/native-stack';
 import {NavigationContainer, RouteProp} from '@react-navigation/native';
 
-import {HomeScreen} from 'src/screens';
 import {
+  HomeScreen,
   PhotoDetailRouteParams,
   PhotoDetailScreen,
-} from 'src/screens/PhotoDetailScreen';
+} from 'src/screens';
 
 export type RouteList = {
   Home: undefined;

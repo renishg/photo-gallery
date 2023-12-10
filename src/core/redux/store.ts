@@ -1,4 +1,4 @@
-import {configureStore} from '@reduxjs/toolkit';
+import {combineReducers, configureStore} from '@reduxjs/toolkit';
 import {networkReducer, photosReducer} from './slices';
 import {apiService} from 'src/core/api';
 
@@ -6,21 +6,28 @@ const extraArgument = {
   apiService,
 };
 
-export const store = configureStore({
-  reducer: {
-    photos: photosReducer,
-    network: networkReducer,
-  },
-  middleware: getDefaultMiddleware =>
-    getDefaultMiddleware({
-      thunk: {
-        extraArgument,
-      },
-    }),
+const rootReducer = combineReducers({
+  photos: photosReducer,
+  network: networkReducer,
 });
 
-export type RootState = ReturnType<typeof store.getState>;
+export const setupStore = (preloadedState?: Partial<RootState>) =>
+  configureStore({
+    reducer: rootReducer,
+    preloadedState,
+    middleware: getDefaultMiddleware =>
+      getDefaultMiddleware({
+        thunk: {
+          extraArgument,
+        },
+      }),
+  });
+
+export const store = setupStore();
+
+export type RootState = ReturnType<typeof rootReducer>;
 export type AppDispatch = typeof store.dispatch;
+export type AppStore = ReturnType<typeof setupStore>;
 export type ThunkApiConfig = {
   dispatch: AppDispatch;
   state: RootState;
